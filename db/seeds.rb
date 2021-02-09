@@ -20,6 +20,7 @@ cpu.each do |row|
     t.rank = row['Rank']
     t.samples = row['Samples']
     t.brand = row['Brand']
+    t.benchmark = row['Benchmark']
     t.URL = row['URL']
     t.model = row['Model']
     t.save
@@ -32,6 +33,7 @@ gpu.each do |row|
     t.rank = row['Rank']
     t.samples = row['Samples']
     t.brand = row['Brand']
+    t.benchmark = row['Benchmark']
     t.URL = row['URL']
     t.model = row['Model']
     t.save
