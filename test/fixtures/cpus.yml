@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  part_number: MyString
+  rank: MyString
+  : 1
+  samples: MyString
+  : 1
+  brand: MyString
+  benchmark: MyString
+  : 1
+  URL: MyString
+  model: MyString
+
+two:
+  type: 
+  part_number: MyString
+  rank: MyString
+  : 1
+  samples: MyString
+  : 1
+  brand: MyString
+  benchmark: MyString
+  : 1
+  URL: MyString
+  model: MyString
