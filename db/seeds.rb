@@ -7,11 +7,27 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'CPU_UserBenchmarks.csv'))
-csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
-csv.each do |row|
-    t = Cpu.new
-    t.type = row['Type']
+csv_cpu = File.read(Rails.root.join('lib', 'seeds', 'CPU_UserBenchmarks.csv'))
+cpu = CSV.parse(csv_cpu, :headers => true, :encoding => 'ISO-8859-1')
+
+csv_gpu = File.read(Rails.root.join('lib', 'seeds', 'GPU_UserBenchmarks.csv'))
+gpu = CSV.parse(csv_gpu, :headers => true, :encoding => 'ISO-8859-1')
+
+cpu.each do |row|
+  t = Cpu.new
+  t.type = row['Type']
+    t.part_number = row['Part Number']
+    t.rank = row['Rank']
+    t.samples = row['Samples']
+    t.brand = row['Brand']
+    t.URL = row['URL']
+    t.model = row['Model']
+    t.save
+end
+
+gpu.each do |row|
+  t = Gpu.new
+  t.type = row['Type']
     t.part_number = row['Part Number']
     t.rank = row['Rank']
     t.samples = row['Samples']
@@ -22,3 +38,4 @@ csv.each do |row|
 end
 
 puts "There are now #{Cpu.count} processors in the CPU table"
+puts "There are now #{Gpu.count} see ya suckers"
