@@ -10,10 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_03_174132) do
+ActiveRecord::Schema.define(version: 2021_02_09_004653) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "computers", force: :cascade do |t|
+    t.string "name"
+    t.integer "CPU"
+    t.integer "GPU"
+    t.text "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "cpus", force: :cascade do |t|
+    t.string "type"
+    t.string "part_number"
+    t.integer "rank"
+    t.integer "samples"
+    t.string "brand"
+    t.integer "benchmark"
+    t.string "URL"
+    t.string "model"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "gpus", force: :cascade do |t|
+    t.string "type"
+    t.string "part_number"
+    t.integer "rank"
+    t.integer "samples"
+    t.string "brand"
+    t.integer "benchmark"
+    t.string "URL"
+    t.string "model"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
