@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_004653) do
   end
 
   create_table "cpus", force: :cascade do |t|
-    t.string "type"
+    t.string "part_type"
     t.string "part_number"
     t.integer "rank"
     t.integer "samples"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_02_09_004653) do
   end
 
   create_table "gpus", force: :cascade do |t|
-    t.string "type"
+    t.string "part_type"
     t.string "part_number"
     t.integer "rank"
     t.integer "samples"

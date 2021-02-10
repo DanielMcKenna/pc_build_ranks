@@ -1,7 +1,7 @@
 class CreateCpus < ActiveRecord::Migration[6.1]
   def change
     create_table :cpus do |t|
-      t.string :type
+      t.string :part_type
       t.string :part_number
       t.integer :rank
       t.integer :samples

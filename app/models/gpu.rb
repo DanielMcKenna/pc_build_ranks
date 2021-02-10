@@ -1,3 +1,2 @@
 class Gpu < ApplicationRecord
-  
 end

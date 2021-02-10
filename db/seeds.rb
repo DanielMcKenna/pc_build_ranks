@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.create(username: "tjaRoxasXIII", email: "tjaroguetech@gmail.com", password: "password")
+
 require 'csv'
 
 csv_cpu = File.read(Rails.root.join('lib', 'seeds', 'CPU_UserBenchmarks.csv'))
@@ -15,7 +17,7 @@ gpu = CSV.parse(csv_gpu, :headers => true, :encoding => 'ISO-8859-1')
 
 cpu.each do |row|
   t = Cpu.new
-  t.type = row['Type']
+  t.part_type = row['Type']
     t.part_number = row['Part Number']
     t.rank = row['Rank']
     t.samples = row['Samples']
@@ -28,7 +30,7 @@ end
 
 gpu.each do |row|
   t = Gpu.new
-  t.type = row['Type']
+  t.part_type = row['Type']
     t.part_number = row['Part Number']
     t.rank = row['Rank']
     t.samples = row['Samples']
