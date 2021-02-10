@@ -17,19 +17,19 @@ class ComputersController < ApplicationController
   def create
     @computer = Computer.new(computer_params)
 
-    if @computer.save
-      redirect_to computers_path
-    else
-      render :new
+    if !@computer.save
+      render json: @computer
     end
   end
 
   def update
-    if @computer.update(computer_params)
-      redirect_to @computer
-    else
-      render :edit
+    if !@computer.update(computer_params)
+      render json: @computer
     end
+  end
+
+  def destroy
+   @computer.destroy
   end
 
   private
