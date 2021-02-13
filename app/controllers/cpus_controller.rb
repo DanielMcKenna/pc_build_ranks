@@ -1,7 +1,7 @@
 class CpusController < ApplicationController
 
   def index
-    @cpu = Cpu.all
+    @cpus = Cpu.all
     render json: @cpus
   end
 
