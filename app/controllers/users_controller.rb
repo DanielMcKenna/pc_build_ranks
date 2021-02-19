@@ -1,5 +1,8 @@
+require 'pry'
 class UsersController < ApplicationController
     before_action :set_user, only: [:show, :update, :edit, :destroy]
+    skip_before_action :require_login, only: [:create]
+
     def index
         @users = User.all
         render json: @users
@@ -11,6 +14,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        binding.pry
 
         if @user.save
             payload = {user_id: @user.id, username: @user.username}
