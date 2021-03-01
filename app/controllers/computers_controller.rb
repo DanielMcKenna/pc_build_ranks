@@ -3,7 +3,7 @@ class ComputersController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
   def index
     @computers = Computer.all
-    render json: @computers
+    render json: @computers, include: [:Cpu, :Gpu]
   end
 
   def show
