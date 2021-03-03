@@ -7,6 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create(username: "tjaRoxasXIII", email: "tjaroguetech@gmail.com", password: "password")
 
+
+Computer.create(name: "Bertha", CPU: 444, GPU: 234, user_id: 1)
+Computer.create(name: "Mediocre", CPU: 200, GPU: 111, user_id: 1)
+Computer.create(name: "The Struggle Bus", CPU: 16, GPU: 688, user_id: 1)
+Computer.create(name: "Speed Demon", CPU: 1, GPU: 25, user_id: 1)
+Computer.create(name: "Junker", CPU: 1000, GPU: 800, user_id: 1)
+
+
 require 'csv'
 
 csv_cpu = File.read(Rails.root.join('lib', 'seeds', 'CPU_UserBenchmarks.csv'))
