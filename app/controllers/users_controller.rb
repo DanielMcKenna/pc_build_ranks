@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
-        binding.pry
 
         if @user.save
             payload = {user_id: @user.id, username: @user.username}

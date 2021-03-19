@@ -1,6 +1,8 @@
+require 'pry'
 class ComputersController < ApplicationController
   before_action :set_computer, only: [:show, :update, :edit, :destroy]
-  skip_before_action :require_login, only: [:index, :show]
+  skip_before_action :require_login, only: [:index, :show, :create]
+
   def index
     @computers = Computer.all
     render json: @computers, include: [:Cpu, :Gpu]
@@ -16,8 +18,9 @@ class ComputersController < ApplicationController
 
   def create
     @computer = Computer.new(computer_params)
+    binding.pry
 
-    if !@computer.save
+    if @computer.save
       render json: @computer
     end
   end
@@ -39,7 +42,7 @@ class ComputersController < ApplicationController
   end
 
   def computer_params
-    params.require(:computer).permit(:name, :cpu, :gpu, :image)
+    params.require(:computer).permit(:name, :CPU, :GPU, :user_id, :image)
   end
 
 end
