@@ -1,4 +1,3 @@
-require 'pry'
 class ComputersController < ApplicationController
   before_action :set_computer, only: [:show, :update, :edit, :destroy]
   skip_before_action :require_login, only: [:index, :show, :create]
@@ -18,7 +17,6 @@ class ComputersController < ApplicationController
 
   def create
     @computer = Computer.new(computer_params)
-    binding.pry
 
     if @computer.save
       render json: @computer
