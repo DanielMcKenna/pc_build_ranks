@@ -1,6 +1,6 @@
 class ComputersController < ApplicationController
   before_action :set_computer, only: [:show, :update, :edit, :destroy]
-  skip_before_action :require_login, only: [:index, :show, :create]
+  skip_before_action :require_login, only: [:index, :show, :create, :destroy]
 
   def index
     @computers = Computer.all
